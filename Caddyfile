@@ -1,0 +1,7 @@
+{Домен VPS сервера} {
+    tls {email владельца сервера} {
+        on_demand
+    }
+    reverse_proxy /bot/token localhost:{порт бота}
+    file_server
+}
