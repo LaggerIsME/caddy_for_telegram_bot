@@ -1,7 +1,15 @@
 version: "3.9"
+
+networks:
+  web:
+    external: true
+
 services:
   caddy:
     image: caddy:latest
+    container_name: caddy
+    env_file:
+      - .env
     ports:
       - "80:80"
       - "443:443"
@@ -9,3 +17,5 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy-data:/data # Необязательно
       - ./caddy-config:/config # Необязательно
+    networks:
+      - web
